@@ -1,15 +1,5 @@
 
 const tab = window.location.href;
-// const userValues = {
-//   'special': {
-//     'domain': 'gato-gato.a3c1.starter-us-west-1.openshiftapps.com/',
-//     'selector': '.Selected .cdmHeader .titleWrap .title'
-//   },
-//   'template': {
-//     'new': 'n',
-//     'append': 'a'
-//   }
-// };
 let previousLink;
 
 const init = () => {

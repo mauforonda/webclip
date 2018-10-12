@@ -1,0 +1,62 @@
+* WebClip
+
+A Firefox webextension to help me save bits of online text to Emacs org-mode.
+
+The personal quirks I demanded from this extension are:
+
+1. Group bits from the an article under the same heading.
+2. Have a workaround to select the relevant link in rss readers, or other aggregators.
+
+For 1: 
+
+I use 2 capture templates in Emacs, one for the first bit I save in a specific page and another for the next ones. This allows me to create a heading when I save the first bit, and then just append text to it. You can define the names of these templates in the extension options. The templates I use in Emacs are:
+
+#+BEGIN_SRC emacs-lisp 
+(setq org-capture-templates
+      '(
+	("n"
+	 "New"
+         entry
+         (file+headline
+          "/path/to/clips.org"
+          "clips")
+         "\n\n* %:description\n[[%:link][⦿]]\n\n%i"
+         :immediate-finish t :jump-to-captured nil)
+	
+	("a"
+         "Append"
+         plain
+         (file
+          "/path/to/clips.org")
+         "\n\n%i"
+         :immediate-finish t :jump-to-captured nil)
+	)
+      )
+#+END_SRC
+
+This will make something that looks like this:
+
+[[file:webclip.png]]
+
+For 2:
+
+In a normal page, it would be ok to send its link and title as the link and title of the article you are reading. In an aggregator, like an rss reader, you would have dozens of different articles under the same meaningless link and title. To solve this, you have the option to define a node from where to grab the link/title via css selectors (see extension options) in a specific page. 
+
+For example, in my TinyTinyRSS instance, the link/title can be found in =.Selected .cdmHeader .titleWrap .title=
+
+** Instructions
+
+1. Clone
+2. =./build.sh= (will zip the extension and place the native manifest and application where firefox can find them, only works in Linux but would require small changes to work in other systems, see [[https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#Manifest_location][mdn]])
+3. Install add-on from file in =about:addons=
+4. Start the emacs server:
+#+BEGIN_SRC emacs-lisp 
+(server-start)
+(require 'org-protocol)
+#+END_SRC
+5. Make your capture templates
+
+** Usage
+
+Open a page in Firefox, select text, press Alt+Space (you can redefine this combo in =manifest.json=)
+

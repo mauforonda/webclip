@@ -25,10 +25,6 @@ const handleContent = (selection, key) => {
 const toEmacs = (clip) => {
   let native = browser.runtime.connectNative("web.clip")
   native.postMessage(clip);
-  // browser.runtime.sendNativeMessage("web.clip",clip)
-  //   .then(console.log('success'), reason => {
-  //     console.log(reason)
-  //   })
 };
 
 listenKeyboard();
