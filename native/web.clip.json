@@ -1,0 +1,7 @@
+{
+    "name": "web.clip",
+    "description": "Web Clip",
+    "path": "/home/m/.webclip.py",
+    "type": "stdio",
+    "allowed_extensions": [ "webclip@mauforonda" ]
+}

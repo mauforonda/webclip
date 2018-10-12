@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <form>
+      <section>
+        <h2> Template Key</h2>
+        <span>Keys</span>
+        <p>
+          <label>New: </label>
+          <input type="text" id="template-new" >
+        </p>
+	<p>
+          <label>Append: </label>
+          <input type="text" id="template-append" >
+        </p>
+      </section>
+      <section>
+        <h2>Special Domain (optional)</h2>
+        <span>You can define a CSS selector for a link element that gives the value of the link and title in captures inside a specific domain. This could be useful for captures taken in aggregators, where the page link and title are near meaningless references. I personally use this in my tt-rss instance, in which the selector for the active article title would be <em>div.cdm.expandable.Selected.active a.title</em>
+          <p>
+            <label>Domain: </label>
+            <input type="text" id="special_domain" >
+          </p>
+          <p>
+            <label>CSS Selector: </label>
+            <input type="text" id="special_selector" >
+          </p>
+      </section>
+      <section>
+        <p> <button type="submit">Save</button> </p>
+      </section>
+    </form>
+    <script src="options.js"></script>
+  </body>
+
+</html>

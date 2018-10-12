@@ -1,0 +1,41 @@
+{
+  "manifest_version":2,
+  "name":"Web Clip",
+  "description":"Clips text selections to Emacs Org Mode",
+  "version":"1.0",
+
+  "icons":{
+    "48":"capture-48.png",
+    "96":"capture-96.png"
+  },
+
+  "applications":{
+    "gecko":{
+      "id":"webclip@mauforonda"
+    }
+  },
+  
+  "background":{
+    "scripts": ["background.js"]
+  },
+
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+  
+  "commands": {
+    "webclip": {
+      "suggested_key": { "default": "Alt+Space" },
+      "description": "Web Clip"
+    }
+  },
+
+  "permissions":[
+    "<all_urls>",
+    "activeTab",
+    "nativeMessaging",
+    "storage"
+  ]
+
+}
