@@ -1,10 +1,10 @@
 * WebClip
 
-A Firefox webextension to help me save bits of online text to Emacs org-mode.
+A Firefox extension to help me save bits of online text to Emacs org-mode.
 
 The personal quirks I demanded from this extension are:
 
-1. Group bits from the an article under the same heading.
+1. Group bits from an article under the same heading.
 2. Have a workaround to select the relevant link in rss readers, or other aggregators.
 
 For 1: 
